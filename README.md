@@ -17,16 +17,16 @@ same techniques can be used to analyze other functional areas within the spring 
 
 1. Configure `Actuator` and `Prometheus Registry` in **your** Spring Boot 2.x app
 
-  `build.gradle`
-  ```
-  dependencies {
-      ...    
-      implementation 'org.springframework.boot:spring-boot-starter-web'
-      implementation 'org.springframework.boot:spring-boot-starter-actuator'
-      implementation 'io.micrometer:micrometer-registry-prometheus'
-      ...
-  }
-  ```
+    `build.gradle`
+    ```
+    dependencies {
+        ...    
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'io.micrometer:micrometer-registry-prometheus'
+        ...
+    }
+    ```
 
 2. GIT clone from https://github.com/pbelathur/spring-boot-performance-analysis.git
 
@@ -36,17 +36,17 @@ same techniques can be used to analyze other functional areas within the spring 
 
 5. Replace `LOCAL_MACHINE_IP` with the **actual** IP address of the machine running Docker in `prometheus.xml`
 
-  ```
-  scrape_configs:
-  - job_name: 'latency-troubleshooter'
-    scrape_interval: 5s
-    metrics_path: '/actuator/prometheus'
-    static_configs:
-      - targets: ['LOCAL_MACHINE_IP:PORT']
-  ```
-  * LOCAL_MACHINE_IP is **NOT** `localhost` OR `127.0.0.1`
-  * PORT is the Spring Boot application port usually 8080
-  
+    ```
+    scrape_configs:
+    - job_name: 'performance-troubleshooter'
+      scrape_interval: 5s
+      metrics_path: '/actuator/prometheus'
+      static_configs:
+        - targets: ['LOCAL_MACHINE_IP:PORT']
+    ```
+    * LOCAL_MACHINE_IP is **NOT** `localhost` OR `127.0.0.1`
+    * PORT is the Spring Boot application port usually 8080
+
 
 6. Start `Prometheus` and `Grafana` using `docker-compose up`
 
@@ -74,11 +74,10 @@ same techniques can be used to analyze other functional areas within the spring 
 3. View Grafana `Spring Boot 2.1 Statistics` dashboard at http://localhost:3000 **during** the execution of the JMeter load test.
 
     NOTE: _screenshots shown here are for illustration purposes only_
-
-  ![grafana-basic-hikari-stats](images/grafana-basic-stats.png)
-  ![grafana-jvm-stats](images/grafana-jvm-stats.png)
-  ![grafana-jvm-gc-stats](images/grafana-jvm-gc-stats.png)
-  ![grafana-tomcat-stats](images/grafana-tomcat-stats.png)
+    ![grafana-basic-hikari-stats](images/grafana-basic-stats.png)
+    ![grafana-jvm-stats](images/grafana-jvm-stats.png)
+    ![grafana-jvm-gc-stats](images/grafana-jvm-gc-stats.png)
+    ![grafana-tomcat-stats](images/grafana-tomcat-stats.png)
 
 4. Analyze the **HikariCP Statistics** in **Grafana** dashboard.
    ![grafana-basic-hikari-stats](images/grafana-basic-hikari-stats.png)
