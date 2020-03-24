@@ -1,0 +1,6 @@
+scrape_configs:
+  - job_name: 'latency-troubleshooter'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['LOCAL_MACHINE_IP:PORT']
