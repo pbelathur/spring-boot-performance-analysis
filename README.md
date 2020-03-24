@@ -1,8 +1,8 @@
 # spring-boot-performance-analysis
 
-You will learn how to analyze and tune spring boot application performance.
+You will learn techniques to analyze and tune spring boot application performance.
 We analyze database connection pooling (_HikariCP_) performance as an example, but
-similar techniques can be used to analyze other functional areas within the spring boot application using the Grafana dashboard.
+similar techniques can be used to analyze other areas within the spring boot application using the Grafana dashboard.
 
 ### Tools
 
