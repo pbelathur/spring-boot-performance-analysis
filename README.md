@@ -1,8 +1,8 @@
 # spring-boot-performance-analysis
 
-In this recipe, you will learn how to analyze and tune spring boot application performance.
-We analyze database connection pooling (_HikariCP_) performance as an example.
-Similar techniques can be used to analyze other functional areas within the spring boot application.
+You will learn how to analyze and tune spring boot application performance.
+We analyze database connection pooling (_HikariCP_) performance as an example, but
+same techniques can be used to analyze other functional areas within the spring boot application.
 
 ### Tools
 
@@ -32,12 +32,21 @@ Similar techniques can be used to analyze other functional areas within the spri
 
 3. `cd spring-boot-performance-analysis`
 
-3. `cd docker`
+4. `cd docker`
 
-4. Replace `LOCAL_MACHINE_IP` with the **actual** IP address of the machine running Docker in `prometheus.xml`
+5. Replace `LOCAL_MACHINE_IP` with the **actual** IP address of the machine running Docker in `prometheus.xml`
+
+  ```
+  scrape_configs:
+  - job_name: 'latency-troubleshooter'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['LOCAL_MACHINE_IP:PORT']
+  ```
   * LOCAL_MACHINE_IP is **NOT** `localhost` OR `127.0.0.1`
   * PORT is the Spring Boot application port usually 8080
-
+  
 
 6. Start `Prometheus` and `Grafana` using `docker-compose up`
 
@@ -64,12 +73,12 @@ Similar techniques can be used to analyze other functional areas within the spri
 
 3. View Grafana `Spring Boot 2.1 Statistics` dashboard at http://localhost:3000 **during** the execution of the JMeter load test.
 
-  NOTE: _screenshots shown here are for illustration purposes only_
+    NOTE: _screenshots shown here are for illustration purposes only_
 
-    ![grafana-basic-hikari-stats](images/grafana-basic-stats.png)
-    ![grafana-jvm-stats](images/grafana-jvm-stats.png)
-    ![grafana-jvm-gc-stats](images/grafana-jvm-gc-stats.png)
-    ![grafana-tomcat-stats](images/grafana-tomcat-stats.png)
+  ![grafana-basic-hikari-stats](images/grafana-basic-stats.png)
+  ![grafana-jvm-stats](images/grafana-jvm-stats.png)
+  ![grafana-jvm-gc-stats](images/grafana-jvm-gc-stats.png)
+  ![grafana-tomcat-stats](images/grafana-tomcat-stats.png)
 
 4. Analyze the **HikariCP Statistics** in **Grafana** dashboard.
    ![grafana-basic-hikari-stats](images/grafana-basic-hikari-stats.png)
