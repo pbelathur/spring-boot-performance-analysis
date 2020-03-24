@@ -11,6 +11,7 @@ same techniques can be used to analyze other functional areas within the spring 
 * **Grafana** to _visualize_ the aggregated metric data from Prometheus
 * **Docker** to _run_ Prometheus and Grafana in containers.
 * **JMeter** for _load tests_
+
 ![analysis toolchain](images/analysis-tool-chain.png)
 
 ### Setup
@@ -63,7 +64,7 @@ same techniques can be used to analyze other functional areas within the spring 
 
 9. Setup `JMeter` load test with REST API endpoint on your spring boot app with `number-of-threads=240`, `ramp-up-period=30s` and `loop-count=25`
 
-  - Refer to https://octoperf.com/blog/2018/04/23/jmeter-rest-api-testing/ for JMeter setup for REST endpoint load tests.
+    - Refer to https://octoperf.com/blog/2018/04/23/jmeter-rest-api-testing/ for JMeter setup for REST endpoint load tests.
 
 ### Execution
 
