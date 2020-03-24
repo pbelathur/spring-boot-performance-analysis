@@ -80,23 +80,25 @@ same techniques can be used to analyze other functional areas within the spring 
     ![grafana-tomcat-stats](images/grafana-tomcat-stats.png)
 
 4. Analyze the **HikariCP Statistics** in **Grafana** dashboard.
+
    ![grafana-basic-hikari-stats](images/grafana-basic-hikari-stats.png)
 
       - **Connection Size** is the total connections in DB connection pool (`active + idle + pending`).
       - **Connections** is the count of `active`+ `idle` + `pending` connections over a rolling time window.
       - **Connection Usage Time** is approximately equal to `db query execution time`.
       - **Connection Acquire Time**
-      - **Connection Creation Time**  
+      - **Connection Creation Time**
 
-### Observations
+  ### Observations
+
   | Situation | active | idle | pending | Notes |
   | :--- | :--- | :--- |:--- | :--- |
   | _noisy neighbor_  | 0 | `> maximumPoolSize / 2` and `> minimumIdle` | 0 | if this condition is observed under _no-request scenario_ and after considerable time after the last request, then the spring boot app is a potential _noisy neighbor_, as idle connections are **not** returned to the pool and, they consume system resources on the database server which increase connection times, decrease throughput for other applications using the same database server.|
   | _sweetspot_ | `maximumPoolSize` | `<=minimumIdle` | `< 2 x maximumPoolSize` | best possible in terms of database performance, utilization and minimize chance for app to be a noisy neighbor.|
   | _inadequate connections_ | `maximumPoolSize` | `<= minimumIdle` | `>3 x maximumPoolSize` | if _consistent_ spike is noticed in `Connection Usage Time`, then increase connection pool size in steps of 2 until you see performance improvement.
 
-- If **Connections** < `active + idle + pending`
-there is a _potential memory leak_ which needs further investigation through _thread/memory dump analysis_ using JDK VisualVM.
+  - If **Connections** < `active + idle + pending`
+  there is a _potential memory leak_ which needs further investigation through _thread/memory dump analysis_ using JDK VisualVM.
 
 # Best Practices
 A spring boot application with a service taking 50ms to complete a database query using a single connection is used to provide insights in calculating the connection pool size, idle pool size and timeouts.
