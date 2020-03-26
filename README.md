@@ -1,5 +1,8 @@
 # How to tune Spring Boot + HikariCP for the cloud - _avoiding the common mistakes_
 
+**Prashanth `PB` Belathur**  
+**Staff Solutions Architect, VMWare Pivotal**
+
 ## TL;DR
  A well behaved spring boot app in a single-tenant host, when deployed in a multi-tenant host (_cloud_) degrades performance of other applications in the neighborhood. Be wary of the Hikari Connection Pool configuration in your spring boot app which in most cases are _oversized_ and, a few of the properties are set to the _upper limit_ by default.  The properties need to be _downsized_ for deployment in a multi-tenant cloud environment to minimize the _noisy neighbor_ impacts.
 
