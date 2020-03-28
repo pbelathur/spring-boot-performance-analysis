@@ -52,7 +52,7 @@ I outline the technique used to identify/analyze the cause for performance degra
 
 2. GIT clone from https://github.com/pbelathur/spring-boot-performance-analysis.git
 
-3. Replace `LOCAL_MACHINE_IP` with the **actual** IP address of the machine running Docker in `spring-boot-performance-analysis/docker/prometheus.xml`
+3. Replace `LOCAL_MACHINE_IP` with the **actual** IP address of the machine running Docker in `spring-boot-performance-analysis/docker/prometheus.yml`
 
     ```
     scrape_configs:
@@ -76,7 +76,7 @@ I outline the technique used to identify/analyze the cause for performance degra
 
      - using a web browser access `http://localhost:3000`
      - under the `Recently viewed dashboards` look for the entry `Spring Boot 2.1 Statistics`
-     - click on `Spring Boot 2.1 Statistics` and look for `Instance =` `LOCAL_MACHINE_IP:PORT` specified in `prometheus.xml`
+     - click on `Spring Boot 2.1 Statistics` and look for `Instance =` `LOCAL_MACHINE_IP:PORT` specified in `prometheus.yml`
 
 
 7. Setup **JMeter** load test with REST API endpoint on your spring boot app with `number-of-threads=240`, `ramp-up-period=30s` and `loop-count=25`
