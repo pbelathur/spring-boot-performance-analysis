@@ -50,7 +50,7 @@ I outline the technique used to identify/analyze the cause for performance degra
     }
     ```
 
-2. GIT clone from https://github.com/pbelathur/spring-boot-performance-analysis.git
+2. GIT clone this repo [https://github.com/pbelathur/spring-boot-performance-analysis.git]
 
 3. Replace `LOCAL_MACHINE_IP` with the **actual** IP address of the machine running Docker in `spring-boot-performance-analysis/docker/prometheus.yml`
 
