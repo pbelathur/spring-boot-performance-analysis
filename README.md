@@ -116,9 +116,9 @@ A spring boot application with a service taking 50ms to complete a database quer
 
 #### Connection Pool Size
   * `spring.datasource.hikari.maximum-pool-size`
-  * `50ms/database query` => `200 database queries/sec` per connection
-  * If `pool size = 10 connections` on a single app instance, then we can handle `200 X 10 = 2000 queries/sec` per instance.
-  * if we scale the apps instance to 20, we can handle `2000 x 20 = 40,000 queries/sec` among 20 instances, by using `10 x 20 = 200 connections`  
+  * `50ms/database query` => `20 database queries/sec` per connection
+  * If `pool size = 10 connections` on a single app instance, then we can handle `20 X 10 = 200 queries/sec` per instance.
+  * if we scale the apps instance to 20, we can handle `200 x 20 = 4,000 queries/sec` among 20 instances, by using `10 x 20 = 200 connections`  
 
     Keeping `pool size <= 10 connections` per app instance and _sensible_ app instance scaling to keep the `total db connections < 1000` across all app instances (_especially for Oracle_) results in minimizing the _noisy neighbour_ impacts in PCF.
 
