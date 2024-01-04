@@ -62,7 +62,7 @@ I outline the technique used to identify/analyze the cause for performance degra
       static_configs:
         - targets: ['LOCAL_MACHINE_IP:PORT']
     ```
-    * LOCAL_MACHINE_IP is **NOT** `localhost` OR `127.0.0.1, because the **prometheus** and **grafana** is running as docker container.
+    * LOCAL_MACHINE_IP is **NOT** `localhost` OR `127.0.0.1` as the **prometheus** and **grafana** is running as docker container.
     * PORT is the Spring Boot application port usually 8080
 
 
