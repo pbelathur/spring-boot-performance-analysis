@@ -1,4 +1,4 @@
-# Less is more for the connection pools in the cloud
+# Less is more for the database connection pools in the cloud
 ## How to tune Spring Boot + HikariCP for the cloud - _avoiding the common mistakes_
 
 **Prashanth `PB` Belathur**  
