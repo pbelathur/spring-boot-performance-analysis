@@ -35,7 +35,7 @@ I outline the technique used to identify/analyze the cause for performance degra
 * **Docker** to _run_ Prometheus and Grafana in containers.
 * **JMeter** for _load tests_
 
-![analysis toolchain](analysis-tool-chain.png)
+![analysis toolchain](images/analysis-tool-chain.png)
 
 ### Setup
 
