@@ -1,4 +1,5 @@
-# How to tune Spring Boot + HikariCP for the cloud - _avoiding the common mistakes_
+# Less is more for the connection pools in the cloud
+## How to tune Spring Boot + HikariCP for the cloud - _avoiding the common mistakes_
 
 **Prashanth `PB` Belathur**  
 **Staff Solutions Architect, VMWare Pivotal**
