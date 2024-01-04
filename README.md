@@ -93,7 +93,7 @@ I outline the technique used to identify/analyze the cause for performance degra
 
 3. During the execution of the load test, access http://localhost:3000 --> **HikariCP Statistics** section in __Spring Boot 2.1 Statistics__ dashboard
 
-   ![grafana-basic-hikari-stats](grafana-basic-hikari-stats.png)
+   ![grafana-basic-hikari-stats](images/grafana-basic-hikari-stats.png)
 
     - **Connection Size** is the total connections in DB connection pool (`active + idle + pending`).
     - **Connections** is the count of `active`+ `idle` + `pending` connections over a rolling time window.
